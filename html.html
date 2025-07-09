@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreeperHub - تحميل ماين كرافت للجوال مجاناً</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #FF5722;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Tajawal', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-creepers.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .main-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+            opacity: 0.1;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .version-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .version-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .version-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .version-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .version-image i {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .version-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 2;
+        }
+        
+        .version-content {
+            padding: 25px;
+        }
+        
+        .version-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .version-desc {
+            color: #666;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+        
+        .download-btn {
+            display: block;
+            text-align: center;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        
+        .update-highlights {
+            margin: 60px 0;
+        }
+        
+        .update-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .update-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .update-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .update-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .update-desc {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+        }
+        
+        .update-images {
+            flex: 1;
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 15px;
+        }
+        
+        .update-img {
+            height: 180px;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+        
+        .update-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .features-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            padding: 60px 0;
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .features-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            opacity: 0.2;
+        }
+        
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .feature-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .screenshots-section {
+            padding: 60px 0;
+        }
+        
+        .screenshots-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .screenshots-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        
+        .screenshots-slider::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .screenshot {
+            min-width: 300px;
+            height: 500px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            scroll-snap-align: start;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.03);
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #ddd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .footer-disclaimer {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .creeper-animation {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-image: url('https://i.imgur.com/3sKh3aN.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .main-card {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .version-image {
+                height: 150px;
+                font-size: 3rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .update-content {
+                flex-direction: column;
+            }
+            
+            .screenshot {
+                min-width: 250px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="creeper-animation"></div>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">CreeperHub</div>
+            <div class="subtitle">المركز الأول لتحميل ماين كرافت للجوال</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-card">
+            <h2 class="section-title">الإصدارات المتاحة</h2>
+            
+            <div class="versions-grid">
+                <div class="version-card">
+                    <div class="version-image" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-header.jpg')">
+                        <i class="fas fa-bolt"></i>
+                        <div class="version-badge">الأحدث</div>
+                    </div>
+                    <div class="version-content">
+                        <h3 class="version-title">ماين كرافت 1.21</h3>
+                        <p class="version-desc">تحديث القتال والمغامرات مع أسلحة جديدة، كائنات مخيفة، وميزات مبتكرة</p>
+                        <a href="#" class="download-btn">للتحميل اضغط هنا</a>
+                    </div>
+                </div>
+                
+                <div class="version-card">
+                    <div class="version-image" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-header.jpg')">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <div class="version-content">
+                        <h3 class="version-title">ماين كرافت 1.20</h3>
+                        <p class="version-desc">أحدث إصدار من ماين كرافت مع جميع الميزات الجديدة والعالم الموسع والكائنات المضافة</p>
+                        <a href="https://www.mediafire.com/file/4w2h6qqx978p3i6/minecraft-1-20-12+by+CreeperHub.apk/file" class="download-btn">للتحميل اضغط هنا</a>
+                    </div>
+                </div>
+                
+                <div class="version-card">
+                    <div class="version-image" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-19-update/1-19-header.jpg')">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="version-content">
+                        <h3 class="version-title">ماين كرافت 1.19</h3>
+                        <p class="version-desc">إصدار سابق مستقر مع مميزات رائعة وأداء محسن وعالم أكثر حيوية</p>
+                        <a href="#" class="download-btn">للتحميل اضغط هنا</a>
+                    </div>
+                </div>
+                
+                <div class="version-card">
+                    <div class="version-image" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-18-update/1-18-header.jpg')">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="version-content">
+                        <h3 class="version-title">ماين كرافت 1.18</h3>
+                        <p class="version-desc">الإصدار الكلاسيكي المحبوب مع تحسينات في العالم السفلي وارتفاعات جديدة</p>
+                        <a href="#" class="download-btn">للتحميل اضغط هنا</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <section class="update-highlights">
+        <div class="update-container">
+            <h2 class="section-title">أبرز التحديثات</h2>
+            
+            <div class="update-card">
+                <div class="update-header">تحديث 1.21 - معركة الكائنات</div>
+                <div class="update-content">
+                    <div class="update-desc">
+                        <h3>ماذا جديد في 1.21؟</h3>
+                        <p>يأتي هذا التحديث بالعديد من الميزات الجديدة المثيرة:</p>
+                        <ul>
+                            <li>إضافة كائنات جديدة مخيفة ومثيرة</li>
+                            <li>أسلحة متطورة وأنظمة قتال محسنة</li>
+                            <li>أنواع جديدة من المغامرات والتحديات</li>
+                            <li>تحسينات كبيرة في أداء الرسومات</li>
+                            <li>إضافات جديدة للعالم السفلي</li>
+                        </ul>
+                    </div>
+                    <div class="update-images">
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-mob1.jpg')"></div>
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-weapon.jpg')"></div>
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-cave.jpg')"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="update-card">
+                <div class="update-header">تحديث 1.20 - التقاليد والمغامرات</div>
+                <div class="update-content">
+                    <div class="update-desc">
+                        <h3>أبرز ميزات التحديث</h3>
+                        <p>تحديث التقاليد والمغامرات أضاف العديد من الميزات الرائعة:</p>
+                        <ul>
+                            <li>إضافة حيوانات الجمل القابلة للركوب</li>
+                            <li>ألواح خشبية جديدة وزخارف مختلفة</li>
+                            <li>نظام جديد للعلامات واللافتات</li>
+                            <li>تحسينات كبيرة في أداء اللعبة</li>
+                            <li>إضافة أنواع جديدة من النباتات والزهور</li>
+                        </ul>
+                    </div>
+                    <div class="update-images">
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-camels.jpg')"></div>
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-signs.jpg')"></div>
+                        <div class="update-img" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-bamboo.jpg')"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">لماذا CreeperHub؟</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">تحميل سريع</h3>
+                    <p class="feature-desc">سرعات تحميل عالية بدون انتظار أو تعقيد</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">آمن وخالي من الفيروسات</h3>
+                    <p class="feature-desc">جميع الملفات مفحوصة وتعمل بدون مشاكل</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="feature-title">أرشيف كامل</h3>
+                    <p class="feature-desc">جميع الإصدارات القديمة متاحة للتحميل</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">دعم فني</h3>
+                    <p class="feature-desc">مساعدتك عند الحاجة لحل أي مشكلة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="screenshots-section">
+        <div class="screenshots-container">
+            <h2 class="section-title">لقطات من اللعبة</h2>
+            
+            <div class="screenshots-slider">
+                <div class="screenshot" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-screenshot1.jpg')"></div>
+                <div class="screenshot" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-21-update/1-21-screenshot2.jpg')"></div>
+                <div class="screenshot" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-screenshot1.jpg')"></div>
+                <div class="screenshot" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-20-update/1-20-screenshot2.jpg')"></div>
+                <div class="screenshot" style="background-image: url('https://www.minecraft.net/content/dam/minecraft/game-updates/1-19-update/1-19-screenshot1.jpg')"></div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">CreeperHub</div>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">الصفحة الرئيسية</a>
+                <a href="#" class="footer-link">الإصدارات</a>
+                <a href="#" class="footer-link">المميزات</a>
+                <a href="#" class="footer-link">اتصل بنا</a>
+                <a href="#" class="footer-link">سياسة الخصوصية</a>
+            </div>
+            
+            <div class="footer-disclaimer">
+                هذا الموقع غير مرتبط بـ Mojang Studios أو Microsoft أو أي من الجهات التابعة لها.<br>
+                جميع العلامات التجارية هي ملك لأصحابها respective owners.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // إضافة رسوم متحركة للكريبر
+        document.addEventListener('DOMContentLoaded', function() {
+            const creeper = document.querySelector('.creeper-animation');
+            
+            // حركة الكريبر عند التمرير
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.scrollY;
+                creeper.style.bottom = 20 + scrollPosition * 0.1 + 'px';
+            });
+            
+            // تحريك الكريبر عند تحريك الماوس
+            document.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                creeper.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            });
+            
+            // رسالة عند النقر على زر التحميل
+            const downloadButtons = document.querySelectorAll('.download-btn');
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    if(this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('سيتم توفير رابط التحميل لهذا الإصدار قريباً!');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
